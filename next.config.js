@@ -1,4 +1,17 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+   experimental : {
+      appDir : true,
+      serverComponentsExternalPackages : ['mongoose'],
+      serverActions : true
+  },
+  images: {
+   domains: ['firebasestorage.googleapis.com' , 'images.unsplash.com' , "cdn.shopify.com"],
+ },
 
-module.exports = nextConfig
+}
+
+
+module.exports = nextConfig 
+ 
+
