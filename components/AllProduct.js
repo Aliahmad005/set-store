@@ -49,9 +49,9 @@ const Allproduct = () => {
     <div className='mt-[10px] flex justify-between' > <span className='flex'><p className='text-4xl font-semibold ml-10 '>--Product</p> </span> </div>
 
     <div className='grid  laptop:grid-cols-4 tablet:grid-cols-2 desktop:grid-cols-4    mt-7   w-full pl-4 pr-4'>
-    {   topics.map(function(data){
+    {   topics.map(function(data , i){
 
-          return  <div className='flex justify-center mb-5'  >  <ACard  data={data}/> </div>
+          return  <div key={i} className='flex justify-center mb-5'  >  <ACard  data={data}/> </div>
        })
        }
     </div>

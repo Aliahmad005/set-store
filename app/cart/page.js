@@ -83,8 +83,8 @@ const order = async () => {
     <div className='  w-full mb-10 tablet:mb-0 laptop:mb-0 desktop:mb-0 tablet:w-2/3 laptop:w-2/3 desktop:w-2/3 '>
         <p className='font-semibold'>Cart Items</p>
         {
-            cart.map(function(data){
-     return   <CartC cart={data}/>
+            cart.map(function(data , i){
+     return   <CartC key={i} cart={data}/>
         
             })
         }
