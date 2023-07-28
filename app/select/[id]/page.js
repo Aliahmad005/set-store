@@ -73,6 +73,7 @@ console.log('size', sSize)
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 // end data

@@ -96,6 +96,7 @@ const [page , setPage] = useState(1);
   window.addEventListener("scroll", handelInfiniteScroll);
     
   return () => window.removeEventListener("scroll", handelInfiniteScroll);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
 
  

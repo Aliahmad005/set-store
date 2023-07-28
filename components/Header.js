@@ -58,6 +58,7 @@ const iflog = async ()  =>{
 
 useEffect(()=>{
   iflog()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
 
@@ -71,10 +72,12 @@ let userid = useSelector(function(store){ return store.productSection.userlog;})
 
 useEffect(()=>{
   setCartL(cartData)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
 },[cart])
 
 useEffect(()=>{
   setCartt(cartL.length)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
 },[cartL])
 
   const router = useRouter();

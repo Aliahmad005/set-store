@@ -32,6 +32,7 @@ const [price , setPrice] = useState(props.cart.subP);
 console.log('priceee' , price)
 useEffect(()=>{
 setQunt(props.cart.adQ)
+// eslint-disable-next-line react-hooks/exhaustive-deps
 },[props.cart])
 
 useEffect(()=>{
