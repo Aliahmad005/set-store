@@ -75,8 +75,8 @@ const OrderL = () => {
           <div className='mt-[10px] flex justify-between' > <span className='flex'><p className='text-3xl  font-semibold ml-10 '>Pending Orders</p> </span> </div>
 
         {
-            topics.map((data)=>{
-        return   <CartO cart={data}/>
+            topics.map((data , i)=>{
+        return   <CartO key={i} cart={data}/>
             })
         }
        

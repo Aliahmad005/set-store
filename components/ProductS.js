@@ -107,17 +107,17 @@ const [page , setPage] = useState(1);
     <div className='mt-[30px] flex justify-between' > <span className='flex'><p className=' text-xl   md:text-4xl lg:text-4xl xl:text-4xl font-semibold ml-10 '>--Product</p> <p className="text-3xl text-slate-200 font-semibold ml-10 hidden  tablet:inline laptop:inline desktop:inline">Check our new product</p></span> <p className='text-1xl font-semibold mr-10 hover:text-white hover:bg-black cursor-pointer h-fit '>VIEW ALL</p></div>
 
     <div className='grid grid-cols-2  laptop:grid-cols-4 tablet:grid-cols-2 desktop:grid-cols-4    mt-7   w-full pl-4 pr-4'>
-    {   topics.map(function(data){
+    {   topics.map(function(data , i){
 
-          return  <div className='flex justify-center mb-5 ml-1 mr-1'>  <PCard  data={data}/> </div>
+          return  <div key={i} className='flex justify-center mb-5 ml-1 mr-1'>  <PCard  data={data}/> </div>
        })
        }
     </div>
     {  loading === "true" ?
      <div className='grid grid-cols-2  laptop:grid-cols-4 tablet:grid-cols-2 desktop:grid-cols-4    mt-7   w-full pl-4 pr-4'>
-     {   ard.map(function(data){
+     {   ard.map(function(data , i){
  
-           return  <div className=' mb-5 mx-1'  >  <CardS  data={data}/> </div>
+           return  <div key={i} className=' mb-5 mx-1'  >  <CardS  data={data}/> </div>
         })
         }
      </div> : ''

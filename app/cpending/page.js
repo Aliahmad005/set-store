@@ -56,8 +56,8 @@ const Page = () => {
     <div className='min-h-[400px] p-10'>
         
         {
-            topics.map((data)=>{
-        return   <CartCd cart={data}/>
+            topics.map((data , i)=>{
+        return   <CartCd key={i} cart={data}/>
             })
         }
     </div>

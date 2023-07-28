@@ -213,8 +213,8 @@ console.log("price filter", priceF)
                     <p  className='productPageLCatMenu' >Bata shose</p>
                     <p onClick={()=>router.push(`/adidas/Service`)} className='productPageLCatMenu' >Service shose</p>
 {
-  catt.map((data)=>{
-    return    <p onClick={()=>router.push(`/adidas/${data.cat}`)} className='productPageLCatMenu' >{data.cat}</p>
+  catt.map((data , i)=>{
+    return    <p key={i} onClick={()=>router.push(`/adidas/${data.cat}`)} className='productPageLCatMenu' >{data.cat}</p>
   
   })
 }
@@ -242,16 +242,16 @@ console.log("price filter", priceF)
     <div className='mt-5 flex justify-between w-full' > <span className='flex'><p className=' text-2xl laptop:text-3xl desktop:text-3xl tablet:text-3xl font-semibold ml-10 '>{cat}</p> <p className='text-3xl text-slate-200 font-semibold ml-10 hidden laptop:inline desktop:inline tablet:inline '>Check our new product</p></span> </div>
 {  loading === "false" ?
     <div className='grid grid-cols-2  laptop:grid-cols-4 tablet:grid-cols-2 desktop:grid-cols-4    mt-7   w-full pl-4 pr-4'>
-    {   priceF.map(function(data){
+    {   priceF.map(function(data , i){
 
-          return  <div className='flex justify-center mb-5 ml-1 mr-1'  >  <PCard   data={data}/> </div>
+          return  <div key={i} className='flex justify-center mb-5 ml-1 mr-1'  >  <PCard   data={data}/> </div>
        })
        }
     </div> :
     <div className='grid grid-cols-2  laptop:grid-cols-4 tablet:grid-cols-2 desktop:grid-cols-4    mt-7 pl-0 pr-0  w-full tablet:pl-4 laptop:pl-4 desktop:pl-4 tablet:pr-4 laptop:pr-4 desktop:pr-4'>
-    {   adr.map(function(data){
+    {   adr.map(function(data , i){
 
-          return  <div className=' mb-5 ml-1 mr-1'  >  <CardS   data={data}/> </div>
+          return  <div key={i} className=' mb-5 ml-1 mr-1'  >  <CardS   data={data}/> </div>
        })
        }
     </div>

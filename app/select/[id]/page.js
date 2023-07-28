@@ -206,7 +206,7 @@ const [size , setSize] = useState(['UK 6' , 'UK 6.5' , 'UK 7' , 'UK7.5' , 'UK 8'
             <div className='grid grid-cols-3 gap-2'>
               {
                 size.map(function(size , i){
-                     return       <p  onClick={()=>{
+                     return       <p key={i}  onClick={()=>{
                       
                   setNum(i);
 

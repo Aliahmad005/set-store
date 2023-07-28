@@ -66,16 +66,16 @@ const [loading , setLoading] = useState('true')
     <div className='mt-[70px] flex justify-between' > <span className='flex'><p className='text-4xl font-semibold ml-10 '>--Product</p> <p className='text-3xl text-slate-200 font-semibold ml-10 '>Check our new product</p></span> <p className='text-1xl font-semibold mr-10 hover:text-white hover:bg-black cursor-pointer h-fit '>VIEW ALL</p></div>
 {  loading === "false" ?
     <div className='grid  laptop:grid-cols-4 tablet:grid-cols-2 desktop:grid-cols-4    mt-7   w-full pl-4 pr-4'>
-    {   topics.map(function(data){
+    {   topics.map(function(data , i){
 
-          return  <div className='flex justify-center mb-5'  >  <PCard  data={data}/> </div>
+          return  <div key={i} className='flex justify-center mb-5'  >  <PCard  data={data}/> </div>
        })
        }
     </div>:
      <div className='grid  laptop:grid-cols-4 tablet:grid-cols-2 desktop:grid-cols-4    mt-7   w-full pl-4 pr-4'>
-     {   ard.map(function(data){
+     {   ard.map(function(data , i){
  
-           return  <div className='flex justify-center mb-5'  >  <CardS  data={data}/> </div>
+           return  <div key={i} className='flex justify-center mb-5'  >  <CardS  data={data}/> </div>
         })
         }
      </div>
