@@ -11,7 +11,7 @@ const submitData = async (data) =>{
 await connectDB();
 await Product.create(data);
 
-        return{status: "ok" , message: "sent"}
+        return{status: 200 , message: "sent"}
     } catch (error) {
         return{status: "error" , message: "not sent"}
         

@@ -4,14 +4,16 @@ import React ,{useState} from 'react';
 import Image from 'next/image';
 import submitUser from '../api/reg';
 
-const page = () => {
+const Page = () => {
 
 const [state , setState] = useState();
 
     const handleSubmit = async (FormData) =>{
+        setState("Waiting");
+
         try {
           
-    const res = submitUser({
+    const res = await submitUser({
         name : FormData.get("firstName"),
         email : FormData.get("email"),
         password : FormData.get("password"),
@@ -24,11 +26,12 @@ const [state , setState] = useState();
         
       });
       
-
-      if (res.status == 200){
+      if (res.status === 200){
         setState("sucsess")
       } else {
         setState('erroer')
+console.log("statuseData" , res)
+
       }
       
       } catch (error) {
@@ -84,7 +87,7 @@ const [state , setState] = useState();
                                             <polyline points="3 7 12 13 21 7" />
                                         </svg>
                                     </div>
-                                    <input type="text" id="Email" name="email" required className="pl-3 py-3 w-full text-sm focus:outline-none placeholder-gray-500 rounded bg-transparent text-gray-500 dark:text-gray-400" placeholder="example@gmail.com" />
+                                    <input type="email" id="Email" name="email" required className="pl-3 py-3 w-full text-sm focus:outline-none placeholder-gray-500 rounded bg-transparent text-gray-500 dark:text-gray-400" placeholder="example@gmail.com" />
                                 </div>
                              
                             </div>
@@ -159,95 +162,12 @@ const [state , setState] = useState();
                             </div>
                         </div>
                     </div>
-                    <div className="container mx-auto pb-6">
-                        <div className="flex items-center pb-4 border-b border-gray-300 dark:border-gray-700 px-8 text-gray-800 dark:text-gray-100">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-mail" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" />
-                                <rect x={3} y={5} width={18} height={14} rx={2} />
-                                <polyline points="3 7 12 13 21 7" />
-                            </svg>
-                            <p className="text-sm font-bold ml-2 text-gray-800 dark:text-gray-100">Via Email</p>
-                        </div>
-                        <div className="px-8">
-                            <div className="flex justify-between items-center mb-8 mt-4">
-                                <div className="w-9/12">
-                                    <p className="text-sm text-gray-800 dark:text-gray-100 pb-1">Comments</p>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400">Get notified when a post or comment is made</p>
-                                </div>
-                                <div className="cursor-pointer rounded-full bg-gray-200 relative shadow-sm">
-                                    <input type="checkbox" name="email_comments" id="toggle1" className="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto" />
-                                    <label htmlFor="toggle1" className="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer" />
-                                </div>
-                            </div>
-                            <div className="flex justify-between items-center mb-8">
-                                <div className="w-9/12">
-                                    <p className="text-sm text-gray-800 dark:text-gray-100 pb-1">Job Applications</p>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400">Get notified when a candidate applies to a job posting</p>
-                                </div>
-                                <div className="cursor-pointer rounded-full bg-gray-200 relative shadow-sm">
-                                    <input type="checkbox" name="email_job_application" id="toggle2" className="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto" />
-                                    <label htmlFor="toggle2" className="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer" />
-                                </div>
-                            </div>
-                            <div className="flex justify-between items-center mb-8">
-                                <div className="w-9/12">
-                                    <p className="text-sm text-gray-800 dark:text-gray-100 pb-1">Product Updates</p>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400">Get notifitied when there is a new product feature or upgrades</p>
-                                </div>
-                                <div className="cursor-pointer rounded-full bg-gray-200 relative shadow-sm">
-                                    <input type="checkbox" name="email_product_update" id="toggle3" className="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto" />
-                                    <label htmlFor="toggle3" className="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer" />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="pb-4 border-b border-gray-300 dark:border-gray-700 px-8">
-                            <div className="flex items-center text-gray-800 dark:text-gray-100">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-bell" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                    <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
-                                    <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
-                                </svg>
-                                <p className="text-sm font-bold ml-2 text-gray-800 dark:text-gray-100">Push Notifications</p>
-                            </div>
-                        </div>
-                        <div className="px-8">
-                            <div className="flex justify-between items-center mb-8 mt-4">
-                                <div className="w-9/12">
-                                    <p className="text-sm text-gray-800 dark:text-gray-100 pb-1">Comments</p>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400">Get notified when a post or comment is made</p>
-                                </div>
-                                <div className="cursor-pointer rounded-full bg-gray-200 relative shadow-sm">
-                                    <input type="checkbox" name="notification_comment" id="toggle4" className="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto" />
-                                    <label htmlFor="toggle4" className="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer" />
-                                </div>
-                            </div>
-                            <div className="flex justify-between items-center mb-8">
-                                <div className="w-9/12">
-                                    <p className="text-sm text-gray-800 dark:text-gray-100 pb-1">Job Applications</p>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400">Get notified when a candidate applies to a job posting</p>
-                                </div>
-                                <div className="cursor-pointer rounded-full bg-gray-200 relative shadow-sm">
-                                    <input type="checkbox" name="notification_application" id="toggle5" className="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto" />
-                                    <label htmlFor="toggle5" className="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer" />
-                                </div>
-                            </div>
-                            <div className="flex justify-between items-center mb-8">
-                                <div className="w-9/12">
-                                    <p className="text-sm text-gray-800 dark:text-gray-100 pb-1">Product Updates</p>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400">Get notifitied when there is a new product feature or upgrades</p>
-                                </div>
-                                <div className="cursor-pointer rounded-full bg-gray-200 relative shadow-sm">
-                                    <input type="checkbox" name="notification_updates" id="toggle6" className="focus:outline-none checkbox w-6 h-6 rounded-full bg-white dark:bg-gray-400 absolute shadow-sm appearance-none cursor-pointer border border-transparent top-0 bottom-0 m-auto" />
-                                    <label htmlFor="toggle6" className="toggle-label block w-12 h-4 overflow-hidden rounded-full bg-gray-300 dark:bg-gray-800 cursor-pointer" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
                 </div>
                 <div className="container mx-auto w-11/12 xl:w-full">
                     <div className="w-full py-4 sm:px-0 bg-white dark:bg-gray-800 flex justify-end">
                     <div className="flex justify-between mr-5 items-center pt-1 text-green-400">
-                                    <p className="text-xs">{state}</p>
+                                    <p className="text-lg">{state}</p>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={16} height={16}>
                                         <path
                                             className="heroicon-ui"
@@ -275,4 +195,4 @@ const [state , setState] = useState();
   )
 }
 
-export default page
+export default Page

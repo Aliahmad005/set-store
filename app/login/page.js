@@ -20,7 +20,7 @@ let dispatch = useDispatch();
         }
     
         try {
-          const res = await fetch("/api/log", {
+          const res = await fetch("http://localhost:3000/api/log", {
             method: "POST",
             headers: {
               "Content-type": "application/json",
@@ -29,13 +29,17 @@ let dispatch = useDispatch();
           });
     
           if (res.status === 201) {
-            const {user}= await res.json()
+            const {user , token}= await res.json()
+console.log("token" , token)
+
+           
             dispatch({
                 type:"LOGINCOM",
                 payload: user
               
               });
        
+              localStorage.setItem("meraToken", token)
 
             // router.push("/cpending");
             router.push("/home");

@@ -2,7 +2,7 @@
 
 
 import connectDB from "../db";
-import Product from "../product";
+import Catagory from "../catagory";
 import { NextResponse } from "next/server";
 
 
@@ -10,7 +10,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
     await connectDB();
-    const topics = await Product.find();
+    const topics = await Catagory.find();
     return NextResponse.json({ topics }, { status: 200 });
   }
   

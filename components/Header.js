@@ -13,6 +13,58 @@ import { useDispatch, useSelector } from 'react-redux';
 const Header = () => {
   const [cartL , setCartL] = useState([]);
   const [cartt , setCartt] = useState(0);
+
+
+
+// login
+
+
+
+// get tokern
+let dispatch = useDispatch();
+
+const iflog = async ()  =>{
+
+  const token = localStorage.getItem('meraToken');
+  if (token) {
+    try{
+      const res = await fetch(`/api/tokenlog/${token}`);
+      if(res.status === 200){
+        const {topic}= await res.json()
+        console.log("response a gia" , topic)
+
+        dispatch({
+          type:"LOGINCOM",
+          payload: topic
+        
+        });
+        console.log('userResponse' , topic)
+       
+      }
+    }catch{
+     
+    }
+   }
+
+}
+
+
+
+
+
+
+
+
+
+useEffect(()=>{
+  iflog()
+  },[])
+
+
+
+
+
+
 let cartData = useSelector( (store)=>  store.productSection.cartList)
 let userid = useSelector(function(store){ return store.productSection.userlog;});
  
@@ -69,6 +121,20 @@ useEffect(()=>{
 
    }
 
+   function logOut (){
+    localStorage.removeItem("meraToken");
+    dispatch(
+      {
+          type:"LOGOUTE",
+          payload:{
+            
+          }
+      }
+    )
+    router.push(`/`)
+
+   }
+
 
 
 
@@ -105,7 +171,10 @@ useEffect(()=>{
           </NavDropdown>
         </Nav>
         <Nav>
-
+        <Nav.Link onClick={logOut} eventKey={2} >
+            
+           Log out
+             </Nav.Link>
           <Nav.Link eventKey={2} href="#memes">
             
          < RiUser6Fill className='text-xl'/>

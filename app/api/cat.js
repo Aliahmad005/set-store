@@ -2,17 +2,17 @@
 
 import connectDB from "./db";
 
-import User from "./user";
+import Catagory from "./catagory";
 import { NextResponse } from "next/server";
 
 
 
-const submitUser = async (data) =>{
-    console.log("chulling" , data)
+const submitCat = async (data) =>{
+ 
     try {
 
 await connectDB();
-await User.create(data);
+await Catagory.create(data);
 
         return{status: 200 , message: "sent"}
        
@@ -25,4 +25,4 @@ await User.create(data);
 
 
 
-export default submitUser;
+export default submitCat;

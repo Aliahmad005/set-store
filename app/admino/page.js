@@ -8,7 +8,7 @@ import Allproduct from '@/components/AllProduct';
 import UploadProduct from '@/components/UploadProduct';
 
 
-const page = () => {
+const Page = () => {
 
 
 
@@ -102,4 +102,4 @@ function Createp(){
   )
 }
 
-export default page
+export default Page

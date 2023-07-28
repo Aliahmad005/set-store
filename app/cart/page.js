@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 
 
-const cartt = () => {
+const Cartt = () => {
     
 const [data , setData] = useState([{title: 'Jordan Retro 6 G 1'},{title: 'Jordan Retro 6 G 1'},{title: 'Jordan Retro 6 G 1'},{title: 'Jordan Retro 6 G 1'}])
 const router = useRouter();
@@ -110,4 +110,4 @@ const order = async () => {
   )
 }
 
-export default cartt
+export default Cartt

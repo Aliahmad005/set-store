@@ -13,7 +13,7 @@ import { checkout } from '@/components/Checkout';
 
 
 
-const select = ({ params }) => {
+const Select = ({ params }) => {
 
   const [loading , setLoading] = useState('true');
 
@@ -234,70 +234,11 @@ const [size , setSize] = useState(['UK 6' , 'UK 6.5' , 'UK 7' , 'UK7.5' , 'UK 8'
         </div>
       </div>
 
-        {/* youalso like */}
-
-        {/* <div className='flex justify-center'>
-      <div className=' flex justify-center mt-32 ml-40 mr-40 w-fit '>
-        <div>
-        <p className='text-2xl font-semibold'>You Might Also Like</p>
-        <div className='  grid laptop:grid-cols-3 tablet:grid-cols-2 desktop:grid-cols-3 gap-4 w-full'>
-          <div >
-            <div className=' w-fit'>
-            <Image className='m-auto'
-          src="/shoe.avif"
-          width={400}
-          height={300}
-          alt="Picture of the author"
-        />
-       
-          <p className='font-semibold mt-2 ml-2 mb-0'>jordan Delta 3 Low</p>
-          <div className='flex justify-between ml-2 mr-2'>
-          <p>Rs : 5000</p>
-          <p className='text-green-400'>12.50% off</p>
-          </div>
-        
-
-            </div>
-        
-          </div>
-          <div>
-          <Image className='m-auto'
-          src="/shoe.avif"
-          width={400}
-          height={300}
-          alt="Picture of the author"
-        />
-         <p className='font-semibold mt-2 ml-2 mb-0'>jordan Delta 3 Low</p>
-          <div className='flex justify-between ml-2 mr-2'>
-          <p>Rs : 5000</p>
-          <p className='text-green-400'>12.50% off</p>
-          </div>
-          </div>
-
-          <div>
-          <Image className='m-auto'
-          src="/shoe.avif"
-          width={400}
-          height={300}
-          alt="Picture of the author"
-        />
-
-<p className='font-semibold mt-2 ml-2 mb-0'>jordan Delta 3 Low</p>
-          <div className='flex justify-between ml-2 mr-2'>
-          <p>Rs : 5000</p>
-          <p className='text-green-400'>12.50% off</p>
-          </div>
-
-          </div>
-        </div>
-        </div>
-        
-      </div>
-      </div> */}
+  
 
       <RProduct/>
     </div>
   )
 }
 
-export default select
+export default Select

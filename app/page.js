@@ -1,10 +1,23 @@
 "use client"
 import Image from 'next/image'
-import React from 'react'
+import React,{useEffect , useState} from 'react'
 import { useRouter } from 'next/navigation';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 export default function Home() {
   const router = useRouter();
+  
+
+  const [token , setToken] = useState()
+
+
+
+let userid = useSelector(function(store){ return store.productSection.userlog;});
+
+
+
+
 
 
 
@@ -22,12 +35,21 @@ export default function Home() {
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi cum cupiditate ducimus, fugit harum id necessitatibus odio quam quasi, quibusdam rem tempora voluptates. Cumque debitis dignissimos id quam vel!
             </p>
             <div className="flex justify-center lg:justify-start mt-6">
+              {userid._id === undefined ?
               <a
                 className="px-4 py-3 bg-gray-900 cursor-pointer text-gray-200 text-xs font-semibold rounded hover:bg-gray-800"
                 onClick={()=> router.push(`/login`)}
               >
                 Log in
-              </a>
+              </a>:
+                 <a
+                 className="px-4 py-3 bg-gray-900 cursor-pointer text-gray-200 text-xs font-semibold rounded hover:bg-gray-800"
+                 onClick={()=> router.push(`/home`)}
+               >
+                 Home
+               </a>
+
+}
               <a
                 className="mx-4  px-4 py-3 bg-gray-300 cursor-pointer text-gray-900 text-xs font-semibold rounded hover:bg-gray-400"
                 onClick={()=> router.push(`/admino`)}

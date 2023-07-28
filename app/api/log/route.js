@@ -20,6 +20,7 @@
 import connectDB from "../db"; // Assuming you have a separate file for database connection
 import User from "../user"; // Assuming you have a User model defined
 import { NextResponse } from "next/server";
+let tokenWali = require('jsonwebtoken');
 
 export async function POST(request) {
   try {
@@ -33,8 +34,10 @@ export async function POST(request) {
     
     if (user) {
       console.log("User found:", user);
+     let token = tokenWali.sign({ userKiId: user._id }, "apple sweet", { expiresIn: "2d" },);
+   console.log("token" , token)
       // return new Response(JSON.stringify(user), { status: 201, headers: { 'Content-Type': 'application/json' } });
-      return NextResponse.json({ user }, { status: 201 });
+      return NextResponse.json({ user , token }, { status: 201 });
    
    
     } else {

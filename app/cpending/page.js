@@ -26,7 +26,7 @@ const getTopicById = async (e) => {
    
 
 
-const page = () => {
+const Page = () => {
 
     const [topics, setTopics] = useState([]);
  console.log("chick ", topics)
@@ -64,4 +64,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

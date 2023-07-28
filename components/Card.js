@@ -23,7 +23,7 @@ function PCard(props) {
   }
 
   return (
-    <Card onClick={nav} className='border-0 shadow-sm mx-1 p-0 mb-3 bg-white rounded hover:zoom'>
+    <Card onClick={nav} className='border-0 shadow-sm mx-1 p-0 mb-3 cursor-pointer bg-white rounded hover:zoom'>
       <Card.Img className='' variant="top" src={props.data.img} />
       <Card.Body>
         <Card.Title>{props.data.productname}</Card.Title>

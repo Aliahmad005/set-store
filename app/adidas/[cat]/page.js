@@ -7,9 +7,29 @@ import CardS from '@/components/CardS'
 
 
 
+const getCat = async () => {
+  console.log("checking")
+   try {
+     const res = await fetch("/api/cat", {
+       cache: "no-store",
+     });
+     console.log("data chul rha hai" , res)
+     if (!res.ok) {
+       throw new Error("Failed to fetch topics");
+     }
+     if(res.status === 200){
 
+     }
+ 
+     return res.json();
+    console.log("data" , data)
+   } catch (error) {
+     console.log("Error loading topics: ", error);
+   }
+ };
+ 
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
 
 
 
@@ -62,6 +82,7 @@ const [adr , setAdr] = useState([{name:1},{name:1},{name:1},{name:1},{name:1},{n
     const [topics, setTopics] = useState([]);
     const [priceF, setPriceF] = useState([]);
     const [priceFA, setPriceFA] = useState([]);
+    const [catt, setCatt] = useState([]);
 console.log("popop", topics)
 console.log("price filter", priceF)
     const fetchData = async () => {
@@ -79,6 +100,27 @@ console.log("price filter", priceF)
     useEffect(() => {
       fetchData();
     }, []);
+
+    // get cat
+
+    const fetchCat = async () => {
+      try {
+        const { topics } = await getCat();
+        console.log("topicsCat", topics);
+        setCatt(topics);
+       
+      } catch (error) {
+        console.log("Error fetching topics:", error);
+      }
+      
+    };
+
+
+
+    useEffect(() => {
+      fetchCat();
+    }, []);
+
     
 
     // filter
@@ -170,7 +212,12 @@ console.log("price filter", priceF)
                     <p onClick={()=>router.push(`/adidas/Nike`)} className='productPageLCatMenu' >Nike shose</p>
                     <p  className='productPageLCatMenu' >Bata shose</p>
                     <p onClick={()=>router.push(`/adidas/Service`)} className='productPageLCatMenu' >Service shose</p>
-
+{
+  catt.map((data)=>{
+    return    <p onClick={()=>router.push(`/adidas/${data.cat}`)} className='productPageLCatMenu' >{data.cat}</p>
+  
+  })
+}
                 </div>
 
                 <div className='productPageLCatMain'>
@@ -217,4 +264,4 @@ console.log("price filter", priceF)
   )
 }
 
-export default page
+export default Page

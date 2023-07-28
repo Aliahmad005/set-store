@@ -28,7 +28,14 @@ function productSection(oldData = initial, newData){
     console.log("user" , oldData.userlog)
 
 
-}else if (newData.type == "LOGINCOMR"){
+}
+else if (newData.type == "LOGOUTE"){
+  oldData.userlog = {}
+  console.log("user" , oldData.userlog)
+
+
+}
+else if (newData.type == "LOGINCOMR"){
     oldData.userRlog = newData.payload   
 }else if (newData.type == "CARTSELECT"){
 
