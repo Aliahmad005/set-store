@@ -99,6 +99,7 @@ console.log("price filter", priceF)
     
     useEffect(() => {
       fetchData();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // get cat
