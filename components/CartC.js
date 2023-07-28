@@ -55,6 +55,7 @@ useEffect(()=>{
     }
   )
   setPrice(pr)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
 },[qunt])
 
 

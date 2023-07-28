@@ -58,6 +58,7 @@ const [page , setPage] = useState(1);
   useEffect(() => {
     fetchData();
     setLoading('true')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
 

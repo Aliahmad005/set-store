@@ -80,10 +80,10 @@ const getTopics = async () => {
        
        { loading === "false" ?
         <Carousel responsive={responsive}  containerClass='-mx-[10px]  ' itemClass="px-[10px]" >
-          { topics.map((data)=>{
+          { topics.map((data , i)=>{
 
         
-   return     <div className=' w-fit '>
+   return     <div key={i} className=' w-fit '>
             <Image className='m-auto'
           src={data.img}
           width={400}
@@ -106,9 +106,9 @@ const getTopics = async () => {
         
 </Carousel> :
 <Carousel responsive={responsive}  containerClass='-mx-[10px]  ' itemClass="px-[10px]" >
-{   ard.map(function(data){
+{   ard.map(function(data , i){
  
-    return  <div className=' mb-5 mx-1'  >  <CardS  data={data}/> </div>
+    return  <div key={i} className=' mb-5 mx-1'  >  <CardS  data={data}/> </div>
  })
  }
        
