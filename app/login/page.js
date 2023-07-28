@@ -20,7 +20,7 @@ let dispatch = useDispatch();
         }
     
         try {
-          const res = await fetch("http://localhost:3000/api/log", {
+          const res = await fetch("/api/log", {
             method: "POST",
             headers: {
               "Content-type": "application/json",
