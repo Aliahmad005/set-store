@@ -8,9 +8,7 @@ const getTopics = async () => {
 
     console.log("checking")
      try {
-       const res = await fetch("/api/getdliverd", {
-         cache: "no-store",
-       });
+       const res = await fetch("/api/getdliverd");
        console.log("data chul rha hai" , res)
        if (!res.ok) {
          throw new Error("Failed to fetch topics");
