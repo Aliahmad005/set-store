@@ -25,7 +25,8 @@ try{
   if(!params || !params.id){
     throw new Error("missing product id")
   }
-  const {id} = params
+  const id = params.id
+  console.log("id", id)
   await connectDB();
   const topic = await Product.findOne({ _id: id });
   if(!topic){
