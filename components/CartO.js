@@ -23,7 +23,7 @@ const CartO = (props) => {
       
       });
     
-      if (res.ok) {
+      if (res.status === 200) {
         dispatch(
           {
               type:"PAGE",
