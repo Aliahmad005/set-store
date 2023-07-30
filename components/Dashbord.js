@@ -11,8 +11,8 @@ import OrderL from './OrderList';
 const getTopics = async () => {
     console.log("checking")
      try {
-       const res = await fetch("/api/getall" , { next: { revalidate: 1 } });
-       console.log("data chul rha hai" , res)
+       const res = await fetch(`/api/getall` , { next: { revalidate: 1 } });
+      
        if (!res.status === 200) {
          throw new Error("Failed to fetch topics");
        }
