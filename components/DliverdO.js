@@ -8,7 +8,7 @@ const getTopics = async () => {
 
     console.log("checking")
      try {
-       const res = await fetch("/api/getdliverd" );
+       const res = await fetch("/api/getdliverd" , { next: { revalidate: 1 } });
        console.log("data chul rha hai" , res)
        if (!res.ok) {
          throw new Error("Failed to fetch topics");
