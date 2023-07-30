@@ -13,12 +13,12 @@ const getTopics = async () => {
      try {
        const res = await fetch("/api/getall");
        console.log("data chul rha hai" , res)
-       if (!res.ok) {
+       if (!res.status === 200) {
          throw new Error("Failed to fetch topics");
        }
    
        return res.json();
-      console.log("data" , data)
+     
      } catch (error) {
        console.log("Error loading topics: ", error);
      }
