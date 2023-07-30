@@ -6,7 +6,7 @@ import connectDB from "../db";
 import Order from "../orderr";
 import { NextResponse } from "next/server";
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 1;
 
 export async function GET() {
     await connectDB();
