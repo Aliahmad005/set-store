@@ -10,7 +10,7 @@ const getTopics = async () => {
 
     console.log("checking")
      try {
-       const res = await fetch("/api/getorder");
+       const res = await fetch("/api/getorder" , { next: { revalidate: 1 } });
      
        if (!res.ok) {
          throw new Error("Failed to fetch topics");
