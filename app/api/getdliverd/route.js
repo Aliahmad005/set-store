@@ -13,9 +13,6 @@ export async function GET() {
     const topics = await Order.find({ status:"Deliverd" });
 
 
-revalidatePath(path);
-
-
     return NextResponse.json({ topics });
   }
   
