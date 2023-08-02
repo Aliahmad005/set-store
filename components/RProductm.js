@@ -6,6 +6,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from 'next/image';
 import CardS from './CardS';
+import { useRouter } from 'next/navigation';
 
 
 
@@ -13,6 +14,7 @@ import CardS from './CardS';
 
 const RProductm = () => {
 
+  const router = useRouter();
 
   
   // getdata
@@ -74,6 +76,11 @@ const getTopics = async () => {
         items: 1
       }
     };
+
+    const nav =(e) => {
+   
+      router.push(`/select/${e}`)
+    }
   return (
     <div className='mt-[70px] tablet:ml-20 laptop:ml-4 desktop:ml-4 tablet:mr-2 laptop:mr-4 desktop:mr-4 md:mt-[100px]  md:mb=0'>
         <div className='text-xl   md:text-4xl lg:text-4xl xl:text-4xl font-semibold ml-2 tablet:ml-0 laptop:ml-10 desktop:ml-10 mb-5'>By Adidas</div>
@@ -83,8 +90,8 @@ const getTopics = async () => {
           { topics.map((data , i)=>{
 
         
-   return     <div key={i} className=' w-fit '>
-            <Image className='m-auto'
+   return     <div key={i}  className=' w-fit '>
+            <Image  className='m-auto'
           src={data.img}
           width={400}
           height={300}

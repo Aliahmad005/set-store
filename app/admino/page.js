@@ -33,6 +33,9 @@ function Createp(){
     setPagee(4)
 }
 
+function getPage (e){
+    setPagee(e)
+}
 
 
   return (
@@ -94,7 +97,7 @@ function Createp(){
         }
             {
         pagee === 4 ? 
-        <UploadProduct/> : ''
+        <UploadProduct onSubmit = {getPage} /> : ''
             
         }
     </div>

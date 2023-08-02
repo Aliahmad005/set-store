@@ -67,7 +67,9 @@ const OrderL = () => {
      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
   
-
+function dliver (){
+  fetchData();
+}
 
   return (
     <div>
@@ -75,7 +77,7 @@ const OrderL = () => {
 
         {
             topics.map((data , i)=>{
-        return   <CartO key={i} cart={data}/>
+        return   <CartO key={i} onDliverd={dliver} cart={data}/>
             })
         }
        

@@ -73,7 +73,7 @@ let userid = useSelector(function(store){ return store.productSection.userlog;})
 useEffect(()=>{
   setCartL(cartData)
   // eslint-disable-next-line react-hooks/exhaustive-deps
-},[cart])
+},[cartData])
 
 useEffect(()=>{
   setCartt(cartL.length)
@@ -188,7 +188,7 @@ useEffect(()=>{
           </Nav.Link>
           {cartt != 0 ?
            
-           <p className='text-xs p-0 rounded-full text-white m-0 bg-red-500 text-center font-semibold w-[12px] h-[12px]'>1</p>
+           <p className='text-xs p-0 rounded-full text-white m-0 bg-red-500 text-center font-semibold w-[12px] h-[12px]'>{cartt}</p>
          :''
          }
         </Nav>

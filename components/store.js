@@ -39,8 +39,28 @@ else if (newData.type == "LOGINCOMR"){
     oldData.userRlog = newData.payload   
 }else if (newData.type == "CARTSELECT"){
 
+  let index = oldData.cartList.findIndex((product)=>{
+    return product.adId === newData.payload.adId  &&  product.adSize === newData.payload.adSize
+  })
+
+  if(index != -1){
+    let newqnt = (+newData.payload.adQ) + (+oldData.cartList[index].adQ)
+
+    oldData.cartList[index].adQ = newqnt
+  }else{
     oldData.cartList.push(newData.payload  ) 
     console.log("cartStore" , oldData.cartList)
+    return { ...oldData, cartList: [...oldData.cartList] }
+  }
+
+
+
+
+  
+
+
+    // oldData.cartList.push(newData.payload  ) 
+    // console.log("cartStore" , oldData.cartList)
 }else if (newData.type == "TOTTAL"){
     oldData.tottalQnt += +newData.payload.adQnt
     console.log("tottla" , oldData.tottalQnt)
@@ -99,7 +119,7 @@ oldData.page = updatedCartList;
 
 
 
-   return {...oldData};
+   return {...oldData} ;
  
 }
 

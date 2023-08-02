@@ -3,17 +3,22 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from 'react-redux';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function MyApp() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const router = useRouter();
 let dispatch = useDispatch();
+
+const notify = () =>{
+    toast.warn("Login in progress")
+   
+}
     
     const handleSubmit = async (e) => {
       
-    
         if (!email || !password) {
           alert("email and password are required.");
           return;
@@ -29,6 +34,7 @@ let dispatch = useDispatch();
           });
     
           if (res.status === 201) {
+            toast.success("Login complete")
             const {user , token}= await res.json()
 console.log("token" , token)
 
@@ -46,7 +52,10 @@ console.log("token" , token)
           
            
           } else {
+            toast.error("Faild to login")
             throw new Error("Failed to create a topic");
+  
+
           }
        
 
@@ -111,9 +120,10 @@ console.log("token" , token)
                         </div>
                     </div>
                     <div className="mt-8">
-                        <button role="button" aria-label="create my account" className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">
-                            Create my account
+                        <button role="button" onClick={notify} aria-label="login" className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">
+                            Login
                         </button>
+                        <ToastContainer />
                     </div>
                 </div>
             </div>

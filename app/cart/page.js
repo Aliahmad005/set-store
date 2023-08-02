@@ -5,7 +5,8 @@ import React , {useState , useEffect} from 'react';
 import CartC from '@/components/CartC';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from "next/navigation";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Cartt = () => {
@@ -55,7 +56,8 @@ const order = async () => {
     });
 
     if (res.ok) {
-      console.log("complete")
+      toast.success("Order placed successfuly")
+     
       dispatch(
         {
             type:"OCOMPLETE",
@@ -102,7 +104,7 @@ const order = async () => {
         </div>
 
         <div  onClick={order}><p  className='w-full bg-black mb-0 h-10 text-center cursor-pointer text-white align-text-bottom pt-2 rounded-full mt-3'>Checkout</p></div>
-
+        <ToastContainer />
     </div>
   </div>
   

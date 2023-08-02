@@ -4,7 +4,8 @@ import React, { useEffect, useState } from 'react'
 import submitData from '@/app/api/data';
 import submitCat from '@/app/api/cat';
 import { storage } from './firebase';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const getTopics = async () => {
   console.log("checking")
@@ -17,11 +18,11 @@ const getTopics = async () => {
        throw new Error("Failed to fetch topics");
      }
      if(res.status === 200){
-
+      toast.success("Product created successfuly")
      }
  
      return res.json();
-    console.log("data" , data)
+   
    } catch (error) {
      console.log("Error loading topics: ", error);
    }
@@ -31,7 +32,7 @@ const getTopics = async () => {
 
 
 
-const UploadProduct = () => {
+const UploadProduct = (props) => {
 
   const [status , setStatus] = useState();
   const [statusC , setStatusC] = useState();
@@ -159,6 +160,7 @@ const res = await submitData({
 
 if (res.status === 200){
   setStatus("sucsess")
+  props.onSubmit(0)
 } else {
   setStatus('erroer')
 }
@@ -410,6 +412,7 @@ setHide(1)
         <div className="mt-6 flex items-center justify-end gap-x-6">
           <button type="button" className="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
           <button type="submit" className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+          <ToastContainer />
         </div>
       </form>
               </div>

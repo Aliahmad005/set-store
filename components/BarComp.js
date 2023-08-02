@@ -82,3 +82,48 @@ const BarComp = () => {
 }
 
 export default BarComp
+
+
+
+
+/// checking
+
+
+
+// function productSection(oldData = initialProducts, newData) {
+
+//   if (newData.type == "Card_Detail") {
+//       oldData.DetailProduct = newData.payload
+//       //   console.log(oldData.DetailProduct)
+//   } else if (newData.type == "AD_TO_CART") {
+//       let index = oldData.AdToCart.findIndex((product) => {
+//           return product.id == newData.payload.id
+//       })
+//       //   console.log(index)
+//       if (index != -1) {
+
+//           let newqantity = (+newData.payload.quantity) + (+oldData.AdToCart[index].quantity)
+//           let newTotal = (+newData.payload.total_price) + (+oldData.AdToCart[index].total_price)
+
+//           oldData.AdToCart[index].quantity = newqantity
+//           oldData.AdToCart[index].total_price = newTotal
+//       } else {
+//           oldData.AdToCart.push(newData.payload)
+//       }
+
+
+//   } else if (newData.type = 'AD_TO_CART_DEL') {
+
+//       console.log(newData.myindex)
+//       let index = newData.myindex
+//       oldData.AdToCart.splice(index, 1);
+//       console.log(oldData.AdToCart)
+
+//   } else if (newData.type == "ORDER_DONE") {
+//       oldData.AdToCart = {}
+//   }
+
+//   return { ...oldData, AdToCart: [...oldData.AdToCart] }
+
+
+// }

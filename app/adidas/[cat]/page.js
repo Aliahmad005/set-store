@@ -4,8 +4,8 @@ import React,{useState , useEffect , useRef} from 'react'
 import PCard from '@/components/Card';
 import { useRouter } from 'next/navigation';
 import CardS from '@/components/CardS'
-
-
+// import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+// import "regenerator-runtime"
 
 const getCat = async () => {
   console.log("checking")
@@ -209,10 +209,7 @@ console.log("price filter", priceF)
                 <div className='productPageLCatMain'>
                     <h5  className='productPageLCatHeading'>Brands </h5>
     
-                    <p onClick={()=>router.push(`/adidas/Addidas`)}  className='productPageLCatMenu' >Addidas shose</p>
-                    <p onClick={()=>router.push(`/adidas/Nike`)} className='productPageLCatMenu' >Nike shose</p>
-                    <p  className='productPageLCatMenu' >Bata shose</p>
-                    <p onClick={()=>router.push(`/adidas/Service`)} className='productPageLCatMenu' >Service shose</p>
+               
 {
   catt.map((data , i)=>{
     return    <p key={i} onClick={()=>router.push(`/adidas/${data.cat}`)} className='productPageLCatMenu' >{data.cat}</p>

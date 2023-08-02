@@ -5,6 +5,7 @@ import React , {useState , useEffect} from 'react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 
 
@@ -30,6 +31,7 @@ const getTopics = async () => {
 
 const RProduct = () => {
 
+  const router = useRouter();
 
   
   // getdata
@@ -66,6 +68,13 @@ const RProduct = () => {
         items: 1
       }
     };
+
+
+    const nav =(e) => {
+   
+      router.push(`/select/${e}`)
+    }
+
   return (
     <div className='mt-[50px] tablet:ml-20 laptop:ml-40 desktop:ml-40 tablet:mr-20 laptop:mr-40 desktop:mr-40 md:mt-[100px] mb-[100px] md:mb=0'>
         <div className='text-2xl font-bold ml-2 tablet:ml-0 laptop:ml-0 desktop:ml-0 mb-5'>You Might Also Like</div>
@@ -73,7 +82,7 @@ const RProduct = () => {
           { topics.map((data , i)=>{
 
         
-   return     <div key={i} className=' w-fit '>
+   return     <div key={i}  className=' w-fit '>
             <Image className='m-auto'
           src={data.img}
           width={400}

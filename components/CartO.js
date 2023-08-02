@@ -3,7 +3,8 @@ import React,{useState} from 'react';
 import { useRouter } from 'next/navigation';
 import { BsTrash } from "react-icons/bs";
 import { useDispatch, useSelector } from 'react-redux';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -24,15 +25,8 @@ const CartO = (props) => {
       });
     
       if (res.status === 200) {
-        dispatch(
-          {
-              type:"PAGE",
-              payload:{
-                  page: 1,
-               
-              }
-          }
-        )
+        toast.success("Login complete")
+      props.onDliverd()
         console.log("ho gia hai")
         // router.push(`/admino`)
        
@@ -75,8 +69,11 @@ const deliver = async () => {
             
               </div>
  
+            
               <div ><p onClick={deliver} className=' font-semibold hover:text-gray-950 text-green-400 cursor-pointer rounded p-1'>is Deliverd</p></div>
              </div>
+             <ToastContainer />
+
          </div>
          
      </div></div>
