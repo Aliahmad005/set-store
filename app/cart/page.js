@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Cartt = () => {
+let [lenth , setLenth] = useState([])
     
 const [data , setData] = useState([{title: 'Jordan Retro 6 G 1'},{title: 'Jordan Retro 6 G 1'},{title: 'Jordan Retro 6 G 1'},{title: 'Jordan Retro 6 G 1'}])
 const router = useRouter();
@@ -18,10 +19,28 @@ let dispatch = useDispatch();
 
 let cart = useSelector( (store)=>  store.productSection.cartList)
 
+useEffect(() => {
+  setLenth(cart)
+
+}, [cart])
+
+console.log("lenth" , lenth.length)
 
 
 
 let [start , setStart] = useState(cart.subP);
+let [disa , setDisa] = useState()
+
+useEffect(()=>{
+if (lenth.length === 0){
+setDisa(true)
+console.log("DISABLE" , disa)
+}else{
+setDisa(false)
+
+}
+} , [lenth])
+
 
 console.log("chhh",start)
 
@@ -44,6 +63,8 @@ useEffect(()=>{
 // send data to mongodgb
 
 const order = async () => {
+  toast.warn("In progress")
+  setDisa(true)
   
  console.log('kkkkkk' , cart)
   try {
@@ -103,7 +124,7 @@ const order = async () => {
             <p className='text-xs mt-3 antialiased tracking-wider text-black'>The SubTotal reflects the total price of Your order. Included dues and taxes. before any application discounts. It does not include delivery cost and international transection fee</p>
         </div>
 
-        <div  onClick={order}><p  className='w-full bg-black mb-0 h-10 text-center cursor-pointer text-white align-text-bottom pt-2 rounded-full mt-3'>Checkout</p></div>
+        <div   > <button onClick={order} className='w-full bg-black mb-0 h-10 text-center  text-white   rounded-full mt-3' disabled={disa}>Checkout</button> </div>
         <ToastContainer />
     </div>
   </div>

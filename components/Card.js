@@ -6,10 +6,27 @@ import { useDispatch } from 'react-redux';
 
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 
 function PCard(props) {
   const router = useRouter();
+
+  const [disPrice , setDisPrice] = useState()
+
+  // discount 
+useEffect(()=>{
+  if(props.data.dis != "0"){
+    const percentResult = (+props.data.price/100 )* +props.data.dis;
+    const discount = +props.data.price - percentResult
+   setDisPrice( discount)
+
+   console.log("per" , percentResult)
+   console.log("discount" , disPrice)
+  }
+},[])
+  
+
 
   let id = props.data._id;
   let dispatch = useDispatch();
@@ -30,10 +47,25 @@ function PCard(props) {
         <Card.Text>
        {  props.data.mindetail}
         </Card.Text>
-        <Card.Text className='hover:animate-pulse text-red-500'>
+        { props.data.dis === "0" ?
+        <Card.Text className='hover:animate-pulse text-red-500 '>
           {props.data.price}$
         </Card.Text>
-       
+        :
+        <div className='flex justify-between'>
+          <span className='flex'>
+       <Card.Text className='hover:animate-pulse text-gray-500 text-decoration-line-through'>
+          {props.data.price}$
+        </Card.Text>
+        <Card.Text className='hover:animate-pulse text-red-500 ml-2 '>
+          {disPrice}$
+        </Card.Text>
+          </span>
+          <Card.Text className='hover:animate-pulse text-green-500 '>
+          {props.data.dis}%
+        </Card.Text>
+        </div>
+        }
       </Card.Body>
     </Card>
   );

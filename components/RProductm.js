@@ -101,7 +101,7 @@ const getTopics = async () => {
           <p className='font-semibold mt-2 ml-2 mb-0'>{data.productname}</p>
           <div className='flex justify-between ml-2 mr-2'>
           <p>Rs : {data.price}</p>
-          <p className='text-green-400'>12.50% off</p>
+          <p className='text-green-400'>{data.dis}% off</p>
           </div>
         
 

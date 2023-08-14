@@ -55,6 +55,7 @@ const [topics, setTopics] = useState({});
 const [image, setImage] = useState('');
 const [num , setNum] = useState('');
 const [sSize , setSSize] = useState('');
+const [disPrice , setDisPrice] = useState();
 // const {productname} = topics
 console.log('image', image)
 console.log('size', sSize)
@@ -71,6 +72,24 @@ console.log('size', sSize)
     
   };
 
+useEffect(() =>{
+if(topics.dis != "0"){
+  console.log('dis' , topics.dis)
+
+  if(topics.dis != "0"){
+    const percentResult = (+topics.price/100 ) * +topics.dis;
+    const discount = +topics.price - percentResult
+   setDisPrice( discount)
+
+   console.log("per" , percentResult)
+   console.log("discount" , disPrice)
+  }
+}else{
+  console.log('dis' , "nothing found")
+}
+},[topics])
+
+
   useEffect(() => {
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -84,6 +103,7 @@ console.log('size', sSize)
 let dispatch = useDispatch();
 const router = useRouter();
 function order(){
+  if(topics.dis != "0"){
   dispatch(
     {
         type:"CARTSELECT",
@@ -91,7 +111,7 @@ function order(){
             adId: topics._id,
             adName: topics.productname,
             mindet: topics.mindetail ,
-            adP: topics.price,
+            adP: disPrice,
             adPic: topics.img,
             adSize: sSize,
             adQ: 1,
@@ -103,6 +123,27 @@ function order(){
         }
     }
   )
+  }else{
+    dispatch(
+      {
+          type:"CARTSELECT",
+          payload:{
+              adId: topics._id,
+              adName: topics.productname,
+              mindet: topics.mindetail ,
+              adP: topics.price,
+              adPic: topics.img,
+              adSize: sSize,
+              adQ: 1,
+              subP: 0,
+              status: "Pending",
+              userId:cart._id,
+              userName:cart.name
+              ,
+          }
+      }
+    )
+  }
   router.push(`/cart`)
   
 }
@@ -199,7 +240,18 @@ const [size , setSize] = useState(['UK 6' , 'UK 6.5' , 'UK 7' , 'UK7.5' , 'UK 8'
         <div className=' ml-0 tablet:ml-16 laptop:ml-16 desktop:ml-16  '>
           <div><p className='text-3xl font-semibold'>{topics.productname}</p></div>
           <div><p className='text-1xl font-semibold'>{topics.mindetail}</p></div>
-          <div><p className='text-1xl font-semibold mb-0'>Price: Rs {topics.price}</p> 
+
+          <div> <div >
+            {topics.dis === "0" ?
+            <p className='text-1xl font-semibold mb-0'>Price: $ {topics.price}</p>
+            :
+            <div className='flex'>
+            <p className='text-1xl font-semibold mb-0 text-gray-500 text-decoration-line-through'>Price: $ {topics.price}</p>
+            <p className='text-1xl font-semibold mb-0 text-red-500 ml-2'>Price: $ {disPrice}</p>
+           
+            </div>
+    }
+             </div>
           <p className='m-0 font-semibold text-slate-300'>incl of taxes</p>
           <p className='font-semibold text-slate-200'>(also incl all duty charges)</p></div>
           <div className='mt-16'>

@@ -123,6 +123,10 @@ useEffect(()=>{
     router.push(`/cart`)
 
    }
+   function main (){
+    router.push(`/`)
+
+   }
 
    function logOut (){
     localStorage.removeItem("meraToken");
@@ -145,7 +149,17 @@ useEffect(()=>{
   return (
     <Navbar collapseOnSelect expand="lg" className="hshawdow">
     <Container>
+      { userid._id != undefined ?
       <Navbar.Brand onClick={home}>
+      <Image className='m-auto'
+          src="/addidas.jpg"
+          width={70}
+          height={70}
+          alt="Picture of the author"
+        />
+      </Navbar.Brand> :
+
+      <Navbar.Brand onClick={main}>
       <Image className='m-auto'
           src="/addidas.jpg"
           width={70}
@@ -154,7 +168,7 @@ useEffect(()=>{
         />
       </Navbar.Brand>
 
-      
+}
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       { userid._id != undefined ?
       <Navbar.Collapse id="responsive-navbar-nav">

@@ -31,6 +31,7 @@ const userKaSchema = new Schema(
     imgT: String,
     imgTh: String,
     pay: String,
+    dis: String,
   },
   {
     timestamps: true,
