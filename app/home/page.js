@@ -6,6 +6,7 @@ import TMBody from '@/components/TMBody'
 import Product from '@/components/Product'
 import ProductS from '@/components/ProductS'
 import RProductm from '@/components/RProductm'
+import Cus from '@/components/Message'
 // import {Skeleton } from "antd";
 
 
@@ -22,6 +23,7 @@ const home =  () => {
       <TMBody/>
       <RProductm/>
       <ProductS/>
+      <Cus/>
       {/* <Product/> */}
     </div>
   )

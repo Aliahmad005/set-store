@@ -3,6 +3,8 @@
 import React ,{useState} from 'react';
 import Image from 'next/image';
 import submitUser from '../api/reg';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Page = () => {
 
@@ -27,6 +29,7 @@ const [state , setState] = useState();
       });
       
       if (res.status === 200){
+        toast.success("Order placed successfuly")
         setState("sucsess")
       } else {
         setState('erroer')
@@ -185,6 +188,7 @@ console.log("statuseData" , res)
                         <button className="bg-indigo-700 focus:outline-none transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-2 text-sm" type="submit">
                             Save
                         </button>
+                        <ToastContainer />
                     </div>
                 </div>
             </div>
