@@ -12,26 +12,26 @@ import { useState, useEffect } from 'react';
 function PCard(props) {
   const router = useRouter();
 
-  const [disPrice , setDisPrice] = useState()
+  const [disPrice, setDisPrice] = useState()
 
   // discount 
-useEffect(()=>{
-  if(props.data.dis != "0"){
-    const percentResult = (+props.data.price/100 )* +props.data.dis;
-    const discount = +props.data.price - percentResult
-   setDisPrice( discount)
+  useEffect(() => {
+    if (props.data.dis != "0") {
+      const percentResult = (+props.data.price / 100) * +props.data.dis;
+      const discount = +props.data.price - percentResult
+      setDisPrice(discount)
 
-   console.log("per" , percentResult)
-   console.log("discount" , disPrice)
-  }
-},[])
-  
+      console.log("per", percentResult)
+      console.log("discount", disPrice)
+    }
+  }, [props])
+
 
 
   let id = props.data._id;
   let dispatch = useDispatch();
 
-  const nav =() => {
+  const nav = () => {
     dispatch({
       type: "SLECT_CART",
       payload: id
@@ -45,26 +45,26 @@ useEffect(()=>{
       <Card.Body>
         <Card.Title>{props.data.productname}</Card.Title>
         <Card.Text>
-       {  props.data.mindetail}
+          {props.data.mindetail}
         </Card.Text>
-        { props.data.dis === "0" ?
-        <Card.Text className='hover:animate-pulse text-red-500 '>
-          {props.data.price}$
-        </Card.Text>
-        :
-        <div className='flex justify-between'>
-          <span className='flex'>
-       <Card.Text className='hover:animate-pulse text-gray-500 text-decoration-line-through'>
-          {props.data.price}$
-        </Card.Text>
-        <Card.Text className='hover:animate-pulse text-red-500 ml-2 '>
-          {disPrice}$
-        </Card.Text>
-          </span>
-          <Card.Text className='hover:animate-pulse text-green-500 '>
-          {props.data.dis}%
-        </Card.Text>
-        </div>
+        {props.data.dis === "0" ?
+          <Card.Text className='hover:animate-pulse text-red-500 '>
+            {props.data.price}$
+          </Card.Text>
+          :
+          <div className='flex justify-between'>
+            <span className='flex'>
+              <Card.Text className='hover:animate-pulse text-gray-500 text-decoration-line-through'>
+                {props.data.price}$
+              </Card.Text>
+              <Card.Text className='hover:animate-pulse text-red-500 ml-2 '>
+                {disPrice}$
+              </Card.Text>
+            </span>
+            <Card.Text className='hover:animate-pulse text-green-500 '>
+              {props.data.dis}%
+            </Card.Text>
+          </div>
         }
       </Card.Body>
     </Card>

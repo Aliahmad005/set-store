@@ -25,7 +25,7 @@ const userKaSchema = new Schema(
         mindetail:String,
         fulldetail:String,
    catagory: String,
-     price: String,
+     price: Number,
     qunty: String,
     img: String,
     imgT: String,

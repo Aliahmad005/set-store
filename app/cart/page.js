@@ -63,10 +63,17 @@ useEffect(()=>{
 // send data to mongodgb
 
 const order = async () => {
+
+  const token = localStorage.getItem('meraToken');
+
+
+if(token){
+
+
   toast.warn("In progress")
   setDisa(true)
   
- console.log('kkkkkk' , cart)
+//  console.log('kkkkkk' , cart)
   try {
     const res = await fetch("/api/order", {
       method: "POST",
@@ -94,6 +101,12 @@ const order = async () => {
   } catch (error) {
     console.log(error);
   }
+
+
+}else{
+  toast.warn("Please login first to place order")
+}
+
 };
 
 

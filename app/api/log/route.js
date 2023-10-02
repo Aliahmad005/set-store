@@ -1,21 +1,4 @@
 
-// import connectDB from "../db";
-
-// import User from "../user";
-
-
-// import { NextResponse } from "next/server";
-
-// export async function POST(request) {
-//   const { email, password } = await request.json();
-//   console.log("emaill" , email)
-//   await connectDB();
-//   await User.find({ email , password});
-//   console.log("don")
-//   return NextResponse.json({ message: "User Created" }, { status: 201 });
-// }
-
-
 
 import connectDB from "../db"; // Assuming you have a separate file for database connection
 import User from "../user"; // Assuming you have a User model defined

@@ -50,7 +50,7 @@ console.log("statuseData" , res)
                 <div className="container mx-auto bg-white dark:bg-gray-800 rounded">
                     <div className="xl:w-full border-b border-gray-300 dark:border-gray-700 py-5 bg-white dark:bg-gray-800">
                         <div className="flex w-11/12 mx-auto xl:w-full xl:mx-0 items-center">
-                            <p className="text-lg text-gray-800 dark:text-gray-100 font-bold">Register</p>
+                            <p className="text-lg text-gray-800  font-bold">Register</p>
                             <div className="ml-2 cursor-pointer text-gray-600 dark:text-gray-400">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={16} height={16}>
                                     <path className="heroicon-ui" d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0-9a1 1 0 0 1 1 1v4a1 1 0 0 1-2 0v-4a1 1 0 0 1 1-1zm0-4a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" fill="currentColor" />
@@ -67,23 +67,23 @@ console.log("statuseData" , res)
                     <div className="mx-auto pt-4">
                         <div className="container mx-auto">
                             <div className="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-                                <label htmlFor="FirstName" className="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">
+                                <label htmlFor="FirstName" className="pb-2 text-sm font-bold text-gray-800 ">
                                     First Name
                                 </label>
                                 <input type="text" id="FirstName" name="firstName" required className="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 dark:text-gray-400" placeholder />
                             </div>
                             <div className="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-                                <label htmlFor="Password" className="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">
+                                <label htmlFor="Password" className="pb-2 text-sm font-bold text-gray-800 ">
                                     password
                                 </label>
                                 <input type="password" id="password" name="password" required className="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 dark:text-gray-400" placeholder />
                             </div>
                             <div className="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-                                <label htmlFor="Email" className="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">
+                                <label htmlFor="Email" className="pb-2 text-sm font-bold text-gray-800 ">
                                     Email
                                 </label>
                                 <div className="border border-green-400 shadow-sm rounded flex">
-                                    <div className="px-4 py-3 dark:text-gray-100 flex items-center border-r border-green-400">
+                                    <div className="px-4 py-3  flex items-center border-r border-green-400">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-mail" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" />
                                             <rect x={3} y={5} width={18} height={14} rx={2} />
@@ -95,13 +95,13 @@ console.log("statuseData" , res)
                              
                             </div>
                             <div className="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-                                <label htmlFor="StreetAddress" className="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">
+                                <label htmlFor="StreetAddress" className="pb-2 text-sm font-bold text-gray-800 ">
                                     Street Address
                                 </label>
                                 <input type="text" id="StreetAddress" name="streetAddress" required className="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded bg-transparent text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 dark:text-gray-400" placeholder />
                             </div>
                             <div className="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-                                <label htmlFor="City" className="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">
+                                <label htmlFor="City" className="pb-2 text-sm font-bold text-gray-800 ">
                                     City
                                 </label>
                                 <div className="border border-gray-300 dark:border-gray-700 shadow-sm rounded flex">
@@ -119,20 +119,20 @@ console.log("statuseData" , res)
                                 </div>
                             </div>
                             <div className="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-                                <label htmlFor="State/Province" className="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">
+                                <label htmlFor="State/Province" className="pb-2 text-sm font-bold text-gray-800 ">
                                     State/Province
                                 </label>
                                 <input type="text" id="State/Province" name="state" required className="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 dark:text-gray-400" placeholder="California" />
                             </div>
                             <div className="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-                                <label htmlFor="Country" className="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">
+                                <label htmlFor="Country" className="pb-2 text-sm font-bold text-gray-800 ">
                                     Country
                                 </label>
                                 <input type="text" id="Country" name="country" required className="border bg-transparent border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 dark:text-gray-400" placeholder="United States" />
                             </div>
                             <div className="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
                                 <div className="flex items-center pb-2">
-                                    <label htmlFor="ZIP" className="text-sm font-bold text-gray-800 dark:text-gray-100">
+                                    <label htmlFor="ZIP" className="text-sm font-bold text-gray-800 ">
                                         ZIP/Postal Code
                                     </label>
                                     <div className="ml-2 cursor-pointer text-gray-600 dark:text-gray-400">
@@ -159,7 +159,7 @@ console.log("statuseData" , res)
                         <div className="flex items-center mx-auto">
                             <div className="container mx-auto">
                                 <div className="mx-auto xl:w-full">
-                                    <p className="text-lg text-gray-800 dark:text-gray-100 font-bold">Alerts</p>
+                                    <p className="text-lg text-gray-800  font-bold">Alerts</p>
                                     <p className="text-sm text-gray-500 dark:text-gray-400 pt-1">Get updates of any new activity or features. Turn on/off your preferences</p>
                                 </div>
                             </div>
