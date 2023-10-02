@@ -95,7 +95,7 @@ useEffect(()=>{
 
    }
     function navA (){
-    router.push(`/admino`)
+    router.push(`/adminLog`)
 
    }
    function home (){
